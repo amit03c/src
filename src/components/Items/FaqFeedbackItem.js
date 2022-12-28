@@ -1,0 +1,85 @@
+import React from 'react';
+
+const FaqFeedbackItem = ({
+  name,
+  ipAddress,
+  user,
+  userEmail,
+  createdBy,
+  createdDate,
+  updatedDate,
+  status,
+}) => {
+  return (
+    <>
+      <div className="blogs-item">
+        <div className="blogs-item-row">
+          <div className="blogs-options">
+            <div className={"status " + ((status === 1)?'published':'draft')}>{(status === 1)?'published':'draft'}</div>
+            <div className="action-dropdown dropdown">
+              <button type="button" className="dropdown-toggle" data-bs-toggle="dropdown">
+                <i className="fa-regular fa-fw fa-ellipsis-vertical"></i>
+              </button>
+              <div className="dropdown-menu dropdown-menu-end">
+                <button type="button" className="dropdown-item"><i className="fa-regular fa-fw fa-pen-to-square"></i>Edit</button>
+                <button type="button" className="dropdown-item"><i className="fa-regular fa-fw fa-arrow-up-from-dotted-line"></i>Draft</button>
+                <button type="button" className="dropdown-item standOut"><i className="fa-regular fa-fw fa-trash-can"></i>Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="blogs-content">
+          <div className="blogs-label">Question</div>
+          <div className="blogs-title">{name}</div>
+          
+        </div>
+        <div className="blogs-metas">
+        <div className="meta-item">
+            <div className="meta-content">
+              <div className="meta-label">User</div>
+              <div className="meta-data">{user} </div>
+              <div className="meta-data">{userEmail} </div>
+            </div>
+          </div>
+          <div className="meta-item">
+            <div className="meta-content">
+              <div className="meta-label">IP ADDress</div>
+              <div className="meta-data">{ipAddress}</div>
+            </div>
+          </div>
+        </div>
+      
+        
+        {(createdBy || createdDate || updatedDate) &&
+        <div className="blogs-item-row border-t">
+          <div className="blogs-info">
+            {createdBy &&
+            <div className="info">
+              <div className="info-label">Created By</div>
+              <div className="info-data">{createdBy}</div>
+            </div>
+            }
+          
+          </div>
+          <div className="blogs-info">
+            {createdDate &&
+            <div className="info">
+              <div className="info-label">Created Date</div>
+              <div className="info-data">{createdDate}</div>
+            </div>
+            }
+            {updatedDate &&
+            <div className="info">
+              <div className="info-label">Last Updated</div>
+              <div className="info-data">{updatedDate}</div>
+            </div>
+            }
+          </div>
+        </div>
+        }
+      </div>
+    </>
+  );
+};
+
+export default FaqFeedbackItem;

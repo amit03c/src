@@ -1,0 +1,1 @@
+export const hostUrl = "https://dabbawalaapi.iosx.in:3091/api";
